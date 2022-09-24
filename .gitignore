@@ -1,0 +1,35 @@
+################
+#  General
+################
+log/
+!src/**/log/
+*.log
+*.zip
+*.tar
+*.gz
+*.rar
+
+################
+#  Java
+################
+*.class
+*.jar
+*.war
+*.ear
+
+################
+#  Eclipse
+################
+bin/
+
+################
+#  Gradle
+################
+.gradle
+/build/
+!src/**/build/
+gradle-app.setting
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+.gradletasknamecache
+gradle/wrapper/gradle-wrapper.properties
