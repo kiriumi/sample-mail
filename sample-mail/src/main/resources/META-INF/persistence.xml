@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+    xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+
+    <persistence-unit name="sampleUnit" transaction-type="RESOURCE_LOCAL">
+
+        <!-- 参考：https://wiki.eclipse.org/EclipseLink/Examples/JPA/JBoss_Web_Tutorial#JTA_Persistence.xml -->
+        <class>jp.example.entity.Mail</class>
+        <class>jp.example.entity.Attachement</class>
+
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <shared-cache-mode>NONE</shared-cache-mode>
+
+        <properties>
+
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/postgres" />
+            <property name="javax.persistence.jdbc.user" value="postgres" />
+            <property name="javax.persistence.jdbc.password" value="postgres" />
+
+            <!-- Eclipselinkの場合 -->
+            <property name="eclipselink.target-database" value="PostgreSQL" />
+
+            <property name="eclipselink.ddl-generation" value="update" />
+            <property name="eclipselink.ddl-generation.output-mode" value="database" />
+
+            <!-- ログレベル参考：https://www.eclipse.org/eclipselink/documentation/2.4/jpa/extensions/p_logging_level.htm -->
+            <property name="eclipselink.logging.level" value="SEVERE" />
+            <property name="eclipselink.logging.level.sql" value="FINER" />
+            <property name="eclipselink.logging.parameters" value="true" />
+
+
+        </properties>
+
+
+
+    </persistence-unit>
+</persistence>
